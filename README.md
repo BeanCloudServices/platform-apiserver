@@ -96,8 +96,15 @@ following commands with `MYPREFIX` and `MYTAG` replaced by something
 suitable.
 
 ```
-docker build -t MYPREFIX/kube-sample-apiserver:MYTAG ./artifacts/simple-image
-docker push MYPREFIX/kube-sample-apiserver:MYTAG
+docker build -t quay.io/beancloud/kube-sample-apiserver:v0.1.0-SNAPSHOT ./artifacts/simple-image
+```
+Push to a registry
+```shell
+docker push quay.io/beancloud/kube-sample-apiserver:v0.1.0-SNAPSHOT
+```
+or load to kind locally
+```shell
+ kind load docker-image quay.io/beancloud/kube-sample-apiserver:v0.1.0-SNAPSHOT  --name apiserver
 ```
 
 ### Deploy into a Kubernetes Cluster
